@@ -1,19 +1,24 @@
-import { useEffect, useState } from "react";
-import NoticicationRouter from "../notification-group/notificationRouter";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HookRouter from "../Hook/Hook.Router";
+import React, { useEffect, useState, lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 
-const MainRouter = ()=>{
+const NotificationRouter = lazy(() => import('../notification-group/notificationRouter'))
+const HookRouter = lazy(() => import('../Hook/Hook.Router'));
+const Skeleton = lazy(() => import('../skeleton/SkeletonRouter'))
+
+const MainRouter = () => {
     return (
         <>
-        {/* <Router> */}
-            <Routes>
-                <Route path="/notification-group" element={<NoticicationRouter/>} ></Route>
-                <Route path="/hooks" element={<HookRouter />} ></Route>
-            </Routes>
-            
-        {/* </Router> */}
-        
+            <BrowserRouter>
+                <Suspense fallback="Loading.......">
+                    <Routes>
+                        <Route path="/notification-group" element={<NotificationRouter />} ></Route>
+                        <Route path="/hooks" element={<HookRouter />} ></Route>
+                        <Router path="/skeleton" element={<Skeleton />} />
+                        {/* <Skeleton /> */}
+                    </Routes>
+                </Suspense>
+            </BrowserRouter>
+
         </>
     )
 }
