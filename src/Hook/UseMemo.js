@@ -20,6 +20,8 @@ const UseMemo = ()=>{
     const decrementFn = ()=>{
         SetDecrement(decrement - 1);
     }
+    
+    // use memo function
     // let isEvent = useMemo(()=>{
     //     console.log("Event call");
     //     let i = 0;
@@ -27,6 +29,7 @@ const UseMemo = ()=>{
     //     return increment % 2 === 0;
     // },[increment]);
 
+    // normal function
     const isEvent = ()=>{
         console.log("Event call");
         let i = 0;

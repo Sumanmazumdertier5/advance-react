@@ -5,7 +5,17 @@ import ChildComponent from "./ChildCompoment";
 const UseCallback = ()=>{
     const [increment, setIncrement] = useState(0);
     const [decrement, setDecrement] = useState(0);
-    
+
+    // normal function
+    // const fun = ()=>{
+    //     return decrement
+    // }
+
+    const parentFun = ()=>{
+        console.log("Parent function");
+    }
+
+    // Use call back function
     const fun = useCallback(()=>{
         // console.log("Hellow ajay");
         return decrement

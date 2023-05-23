@@ -8,7 +8,7 @@ const HookRouter = ()=>{
         <>
             <UseMemo />
             <UseCallback />
-            {/* <UseReducer /> */}
+            <UseReducer />
         </>
     )
 }
