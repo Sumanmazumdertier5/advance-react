@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-rou
 const NotificationRouter = lazy(() => import('../notification-group/notificationRouter'))
 const HookRouter = lazy(() => import('../Hook/Hook.Router'));
 const Skeleton = lazy(() => import('../skeleton/SkeletonRouter'))
+const ErrorComponent = lazy(()=> import('../Error-Boundary/ErrorComponent'));
 
 const MainRouter = () => {
     return (
@@ -13,9 +14,10 @@ const MainRouter = () => {
                     <Routes>
                         <Route path="/notification-group" element={<NotificationRouter />} ></Route>
                         <Route path="/hooks" element={<HookRouter />} ></Route>
-                        <Router path="/skeleton" element={<Skeleton />} />
+                        <Route path="/skeleton" element={<Skeleton />} ></Route>
                         {/* <Skeleton /> */}
-                    </Routes>
+                        <Route path="/error-boundary" element={<ErrorComponent />}> </Route>
+                    </Routes>   
                 </Suspense>
             </BrowserRouter>
 
