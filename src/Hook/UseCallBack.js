@@ -29,7 +29,7 @@ const UseCallback = ()=>{
                     <li>Use call back is a <strong>pure function</strong></li>
                     <li>Use call back is always return function</li>
                 </ul>
-                <ChildComponent decrement={decrement} fun={fun} />
+                <ChildComponent fun={fun} />
                 <button onClick={() => {setIncrement(increment + 1)}}>Increment {increment}</button>
                 <button onClick={() => {setDecrement(decrement - 1)}}>Decrement {decrement}</button>
             </div>

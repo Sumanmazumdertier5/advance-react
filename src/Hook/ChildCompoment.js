@@ -11,5 +11,5 @@ const ChildComponent = ({decrement, fun})=>{
     )
 }
 
-// export default memo(ChildComponent);
-export default React.memo(ChildComponent)
+export default memo(ChildComponent);
+// export default React.memo(ChildComponent)
