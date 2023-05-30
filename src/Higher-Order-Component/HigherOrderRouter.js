@@ -1,12 +1,12 @@
 import React from "react";
-import SearchTodoList from "./TodoList";
-import SearchUserList from "./UserList";
+// import SearchTodoList from "./TodoList";
+import TodoList from "./TodoList";
 const HigherOrderRouter = ()=>{
 
     return(
         <>
-            <SearchTodoList />
-            <SearchUserList />
+            <TodoList />
+            {/* <SearchUserList /> */}
         </>
     )
 }

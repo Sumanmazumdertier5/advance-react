@@ -1,28 +1,30 @@
-import React from "react";
-// import HigherOrderComponent from "./HigherOrderComponent";
+import React, {useState, useEffect} from "react";
+import HigherOrderComponent from "./HigherOrderComponent";
 import HOC from "./HOC";
 
-const TodoList = (props)=>{
-    console.log(props)
+const TodoList = ()=>{
+    const [userData, setUserData] = useState([]);
+    const userDataHandelar = async ()=>{
+        let users = await fetch(`https://jsonplaceholder.typicode.com/todos`);
+        let userJson = await users.json();
+        setUserData(userJson);
+        console.log(userData);
+    }
+    useEffect(()=>{
+        userDataHandelar();
+    }, [userData.length]);
+
+    return( <SearchTodoList data={userData} />)
+}
+
+const BaseTodoList = ({data})=>{
+    console.log(data);
     return(
-        <React.Fragment>
-            <ul>
-                {
-                    props.data && props.data.map((item, index)=>{
-                        return(
-                            <li key={index}>
-                                <p>{item.title}</p>
-                                <span>{item.completed}</span>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </React.Fragment>
+        <ul>
+            <li></li>
+        </ul>
     )
 }
 
-
-
-const SearchTodoList = HOC(TodoList, "todos")
-export default SearchTodoList
+const SearchTodoList = HigherOrderComponent(BaseTodoList)
+export default TodoList

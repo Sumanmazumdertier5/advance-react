@@ -1,5 +1,5 @@
 import {React} from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import UseMemo from "./UseMemo";
 import  UseReducer  from "./UseReducer";
 import UseCallback from "./UseCallBack";
@@ -9,12 +9,14 @@ import ForwordRef from "./ForwardRef";
 const HookRouter = ()=>{
     return(
         <>
+        <h3>All hooks</h3>
             <UseMemo />
             <UseCallback />
             <UseReducer />
             <ContextApi />
             <UseRef />
             <ForwordRef />
+        <Outlet />
         </>
     )
 }
