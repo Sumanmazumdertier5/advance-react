@@ -6,14 +6,27 @@ import reportWebVitals from './reportWebVitals';
 
 import {rbgInstance} from "./configuration/rbginstance";
 import axios from "axios";
+import {applyMiddleware, createStore} from "redux";
+import rootReducer from './Redux/RootReducer';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+
 
 axios.interceptors.request.use(rbgInstance.authorizerInterceptor);
 rbgInstance.disableProdConsole();
+const myLogger = (store) => (type)=> (action) => {
+  console.log("Logged Action", action);
+  type(action);
+  console.log("Logger Store", store);
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = createStore(rootReducer, applyMiddleware(logger));
 root.render(
   // <React.StrictMode>
+  <Provider store={store}>
       <App />
+  </Provider>
   // </React.StrictMode>
 );
 

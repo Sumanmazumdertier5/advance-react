@@ -10,6 +10,7 @@ const HookRouter = lazy(() => import('../Hook/Hook.Router'));
 const Skeleton = lazy(() => import('../skeleton/SkeletonRouter'))
 const ErrorComponent = lazy(()=> import('../Error-Boundary/ErrorComponent'));
 const HigherOrderRouter = lazy(()=> import('../Higher-Order-Component/HigherOrderRouter'));
+const ReduxRouter = lazy(()=> import('../Redux/ReduxRouter'));
 const MainRouter = () => {
     // const router = createBrowserRouter(
     //     createRoutesFromElements(
@@ -37,6 +38,7 @@ const MainRouter = () => {
                             <Route path="skeleton" element={<Skeleton />} ></Route>
                             <Route path ="hoc" element={<HigherOrderRouter/>} ></Route>
                             <Route path="error-boundary" element={<ErrorComponent />}> </Route>
+                            <Route path="redux" element={<ReduxRouter />}></Route>
                         </Route>
                     </Routes>   
                 </Suspense>
