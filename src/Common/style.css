@@ -1,0 +1,44 @@
+.dashboard{
+    display: flex;
+}
+.dashboardLeft{
+    flex: 0 0 20%;
+    background-color:#0a79db;
+    padding: 30px;
+    box-sizing: border-box;
+    height: 100;
+}
+.dashboardRight{
+    flex: 0 0 80%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.dashboardLeft a{
+    width: 100%;
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 15px 0px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.dashboardLeft a a{
+    background-color: transparent;
+    margin-bottom: 0px;
+}
+.dashboardLeft a a:last-child{
+    
+}
+.dashboardLeft a:hover{
+    background-color: #ffffff;
+    color: #0a79db;
+}
+.dashboardLeft h1{
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 40px;
+}

@@ -11,6 +11,9 @@ const Skeleton = lazy(() => import('../skeleton/SkeletonRouter'))
 const ErrorComponent = lazy(()=> import('../Error-Boundary/ErrorComponent'));
 const HigherOrderRouter = lazy(()=> import('../Higher-Order-Component/HigherOrderRouter'));
 const ReduxRouter = lazy(()=> import('../Redux/ReduxRouter'));
+const UserList = lazy(()=> import('../Higher-Order-Component/UserList'));
+const TodoList = lazy(()=> import('../Higher-Order-Component/TodoList'));
+
 const MainRouter = () => {
     // const router = createBrowserRouter(
     //     createRoutesFromElements(
@@ -25,7 +28,7 @@ const MainRouter = () => {
     // )
     return (
         <>
-            <h3>main router</h3>
+            {/* <h3>main router</h3> */}
             {/* <RouterProvider router={router}/> */}
 
 
@@ -34,11 +37,13 @@ const MainRouter = () => {
                     <Routes>
                         <Route path="/" element={<Dashboard />} >
                             <Route index element={<HookRouter />} ></Route>
-                            <Route path="/notification-group" element={<NotificationRouter />} ></Route>
-                            <Route path="skeleton" element={<Skeleton />} ></Route>
-                            <Route path ="hoc" element={<HigherOrderRouter/>} ></Route>
-                            <Route path="error-boundary" element={<ErrorComponent />}> </Route>
-                            <Route path="redux" element={<ReduxRouter />}></Route>
+                            <Route path="/notification-group" element={<NotificationRouter />} ></Route>                            
+                            <Route path ="/" element={<HigherOrderRouter/>} >
+                                <Route path="/user-list" element={<UserList />}></Route>
+                                <Route path="/todo-list" element={<TodoList />}></Route>
+                            </Route>
+                            <Route path="/error-boundary" element={<ErrorComponent />}> </Route>
+                            <Route path="/redux" element={<ReduxRouter />}></Route>
                         </Route>
                     </Routes>   
                 </Suspense>

@@ -46,12 +46,7 @@ const HigherOrderComponent = (WrappedComponenet, entity) =>{
 const higherOrderComponent = (WrappedComponent, entity) => {
     const [userData, setUserData] = useState([]);
     const [searchItem, setSearchItem] = useState("");
-    const userDataHandelar = async ()=>{
-        let users = await fetch(`https://jsonplaceholder.typicode.com/${entity}`);
-        let userJson = await users.json();
-        setUserData(userJson);
-        console.log(userData);
-    }
+    
     const searchHandeler = (e)=>{
         setSearchItem(String(e.target.value))
         console.log(searchItem);
