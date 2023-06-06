@@ -18,7 +18,6 @@ const UserList = () => {
 
   useEffect(() => {
     setTimeout(()=> userDataHandelar(), 5000)
-    
   }, [userData.length]);
 
   const searchHandeler = (e) => {

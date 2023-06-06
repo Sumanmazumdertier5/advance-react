@@ -1,5 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import Home from "../RouterParamiter/Home";
+import Profile from "../RouterParamiter/Profile";
 // import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
 // import Dashboard from "../Common/Dashboard";
 // import HigherOrderComponent from "";
@@ -13,6 +15,7 @@ const HigherOrderRouter = lazy(()=> import('../Higher-Order-Component/HigherOrde
 const ReduxRouter = lazy(()=> import('../Redux/ReduxRouter'));
 const UserList = lazy(()=> import('../Higher-Order-Component/UserList'));
 const TodoList = lazy(()=> import('../Higher-Order-Component/TodoList'));
+const RouterParamiter = lazy(()=> import('../RouterParamiter/RouterParamiter'));
 
 const MainRouter = () => {
     // const router = createBrowserRouter(
@@ -41,6 +44,10 @@ const MainRouter = () => {
                             <Route path ="/" element={<HigherOrderRouter/>} >
                                 <Route path="/user-list" element={<UserList />}></Route>
                                 <Route path="/todo-list" element={<TodoList />}></Route>
+                            </Route>
+                            <Route path ="/" element={<RouterParamiter/>} >
+                                <Route path="/home" element={<Home />}></Route>
+                                <Route path="/profile/:id" element={<Profile />}></Route>
                             </Route>
                             <Route path="/error-boundary" element={<ErrorComponent />}> </Route>
                             <Route path="/redux" element={<ReduxRouter />}></Route>
