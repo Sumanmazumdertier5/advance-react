@@ -15,6 +15,10 @@ const Sidebar = ()=>{
             <Link to="/notification-group">Notification Group</Link>
             <Link to="/error-boundary">Error Boundary</Link>
             <Link to="/redux">Redux</Link>
+            <Link >Router
+                <Link to="/router/home">Home</Link>
+                <Link to="/router/profile/123">Profile</Link>
+            </Link>
         </>
     )
 }

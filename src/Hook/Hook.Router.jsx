@@ -6,6 +6,7 @@ import UseCallback from "./UseCallBack";
 import ContextApi from "./context-api/ContexApi";
 import UseRef from "./UseRef";
 import ForwordRef from "./ForwardRef";
+import CustomHook from "./CustomHook/CustomHook";
 const HookRouter = ()=>{
     return(
         <>
@@ -16,6 +17,7 @@ const HookRouter = ()=>{
             <ContextApi />
             <UseRef />
             <ForwordRef />
+            <CustomHook />
         <Outlet />
         </>
     )

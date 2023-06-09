@@ -2,6 +2,7 @@ import React, { useEffect, useState, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from "../RouterParamiter/Home";
 import Profile from "../RouterParamiter/Profile";
+import Details from "../RouterParamiter/Details";
 // import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
 // import Dashboard from "../Common/Dashboard";
 // import HigherOrderComponent from "";
@@ -41,13 +42,14 @@ const MainRouter = () => {
                         <Route path="/" element={<Dashboard />} >
                             <Route index element={<HookRouter />} ></Route>
                             <Route path="/notification-group" element={<NotificationRouter />} ></Route>                            
-                            <Route path ="/" element={<HigherOrderRouter/>} >
-                                <Route path="/user-list" element={<UserList />}></Route>
-                                <Route path="/todo-list" element={<TodoList />}></Route>
+                            <Route path ="/hoc" element={<HigherOrderRouter/>} >
+                                <Route path="user-list" element={<UserList />}></Route>
+                                <Route path="todo-list" element={<TodoList />}></Route>
                             </Route>
-                            <Route path ="/" element={<RouterParamiter/>} >
-                                <Route path="/home" element={<Home />}></Route>
-                                <Route path="/profile/:id" element={<Profile />}></Route>
+                            <Route path ="/router" element={<RouterParamiter/>} >
+                                <Route path="home" element={<Home />}></Route>
+                                <Route path="profile/:id" element={<Profile />}></Route>
+                                <Route path="details/:id" element={<Details />}></Route>
                             </Route>
                             <Route path="/error-boundary" element={<ErrorComponent />}> </Route>
                             <Route path="/redux" element={<ReduxRouter />}></Route>
