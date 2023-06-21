@@ -10,8 +10,7 @@ import {applyMiddleware, createStore} from "redux";
 import rootReducer from './Redux/Reducer/RootReducer';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-import thunk from "redux-thunk"
-
+import thunk from "redux-thunk";
 
 axios.interceptors.request.use(rbgInstance.authorizerInterceptor);
 rbgInstance.disableProdConsole();

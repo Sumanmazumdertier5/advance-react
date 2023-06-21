@@ -22,7 +22,10 @@ const NotificationUserList = ()=>{
 
     useEffect(()=>{
         notificationList();
-    },[]);
+    },[userList]);
+
+
+    
     return(
         <>
             <div className="d-flex">

@@ -17,6 +17,7 @@ const ReduxRouter = lazy(()=> import('../Redux/ReduxRouter'));
 const UserList = lazy(()=> import('../Higher-Order-Component/UserList'));
 const TodoList = lazy(()=> import('../Higher-Order-Component/TodoList'));
 const RouterParamiter = lazy(()=> import('../RouterParamiter/RouterParamiter'));
+const CustomChiplist = lazy(()=> import('../Custom-Chiplist/CustomChiplist'));
 
 const MainRouter = () => {
     // const router = createBrowserRouter(
@@ -53,6 +54,7 @@ const MainRouter = () => {
                             </Route>
                             <Route path="/error-boundary" element={<ErrorComponent />}> </Route>
                             <Route path="/redux" element={<ReduxRouter />}></Route>
+                            <Route path="/chiplist" element={<CustomChiplist />}></Route>
                         </Route>
                     </Routes>   
                 </Suspense>

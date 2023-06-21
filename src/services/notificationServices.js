@@ -1,22 +1,28 @@
 import axios from "axios";
 import config from "../configuration/config";
-const headers = {
+const headerss = {
     "Content-Type": "application/json",
     'Accept': 'application/json',
-    'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDNlNzkyZDVlMjU3NTI0ZTM1NjYwZDUiLCJmaXJzdE5hbWUiOiJmZ3hoIiwibGFzdE5hbWUiOiJzZmdoIGRmZ2giLCJ1c2VybmFtZSI6InNhbWltIiwiZW1haWwiOiJzYW1pbUByYmcuaW4iLCJwYXNzd29yZCI6IiQyYSQxMCRjQ2EuQVdTQkJBREpKTE1sdUdOdTlPMmhxclplYk1GOFV6VUJHVTlCMDhoVUhRUmpLaFNKeSIsImdyb3VwSWQiOiI2Mjc5ZmNlNzg4ZTkwODg0YmYxZmQwNzIiLCJvcmdhbml6YXRpb25JZCI6IjYwM2UzZjI0NWUyNTc1MjRlMzU2NjBjMiIsImNyZWF0ZWRCeSI6IjYwM2U3OTJkNWUyNTc1MjRlMzU2NjBkNSIsInVwZGF0ZWRCeSI6IjYwOGJlYzNkNDA3MGQ4MDAwODEyYmMyMiIsImNyZWF0ZWRBdCI6IjIwMjEtMDMtMDIgMTQ6NDU6MjEiLCJ1cGRhdGVkQXQiOjE2MjM2NjQzMjQ3NTgsInBob25lIjoiODk4OTg4OTg5OCIsImlzT3JnYW5pemF0aW9uT3duZXIiOnRydWUsInN0YXR1cyI6ImFjdGl2ZSIsInByZWZpeCI6IisxIiwiemFwaWVyS2V5IjoiNmExOTc0NTMtNjNkNC00ZDYzLTgyNWUtYTAwM2VjOWYyYWY1IiwiY291bnRyeUlkIjoiNjEyM2U1Nzg1MjViZDQ2MjIyNjY5YmYwIiwidGltZXpvbmUiOiI2M2Y3NDQyMDk2NGQ1Nzc1ZTIzYjRhMzYiLCJpbWFnZSI6ImM0NTE4M2I1LTFiMWUtNDI3NS05MzY5LWIyYjljOTAyODEzMV9vcmlnaW5hbF9TY3JlZW5zaG90IGZyb20gMjAyMi0wNC0xOCAxNS0wOC00Mi5wbmciLCJpYXQiOjE2ODE5OTE4NjYsImV4cCI6MTY4MjA3ODI2Nn0.k0BLarnKMfd9Tlxtnn7W2jPb6z_Z72sD4DbFpNZsHME"
+    'Authorization': `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2QxMWE0ODE0Nzc0ODAwMDg4YzhhOTgiLCJmaXJzdE5hbWUiOiJGbG9yYSBHeW0iLCJsYXN0TmFtZSI6Ik93bmVyIiwidXNlcm5hbWUiOiJmbG9yYWd5bSIsImVtYWlsIjoiZmxvcmFneW1AZ21haWwuY29tIiwicHJlZml4IjoiKzkxIiwiY291bnRyeUNvZGUiOiJJTiIsInBob25lIjoiODc2OTQ1NTY1OSIsImltYWdlIjpudWxsLCJwYXNzd29yZCI6IiQyYSQxMCRjV0RkSXlTdGJ1MDM5UUg0QlVuTE91dDJkQXpYRHdtWHoydDgwWmJFaWNoRkltdWczM0tDbSIsImdyb3VwSWQiOiI2M2QxMTcxYmNhNjhjYTAwMDhhYzgyYjQiLCJvcmdhbml6YXRpb25JZCI6IjYzZDExYTQ2ZDk0NTI5MDAwODJhZDQ3YSIsImlzT3JnYW5pemF0aW9uT3duZXIiOnRydWUsImlzQXNzb2NpYXRpb25Pd25lciI6ZmFsc2UsImFzc29jaWF0aW9uSWQiOm51bGwsInN0YXR1cyI6ImFjdGl2ZSIsImNyZWF0ZWRCeSI6IjYwOGJlYzNkNDA3MGQ4MDAwODEyYmMyMiIsInVwZGF0ZWRCeSI6IjYwOGJlYzNkNDA3MGQ4MDAwODEyYmMyMiIsImNyZWF0ZWRBdCI6IjIwMjMtMDEtMjUgMTI6MDI6MTUiLCJ1cGRhdGVkQXQiOiIyMDIzLTAxLTI1IDEyOjAyOjE1IiwidGltZXpvbmUiOiI2M2Y3NDQyMDk2NGQ1Nzc1ZTIzYjRhMzYiLCJ6YXBpZXJLZXkiOiI2ZDAxNWIxYS1mM2IyLTQ0ZTEtODA2Ny01OGJjMWE2MDRkZTgiLCJpYXQiOjE2ODY5ODkxNzksImV4cCI6MTY4NzA3NTU3OX0.74KGcS_5eFfRduV9oUzUtnnRwWKgF4ABCifOD80dQj4`,
 };
 
 // notification list
 export const NotificationGroupServices = {
     fatchNotificationGroupList: async() =>{
-        headers.Authorization = localStorage.getItem("");
-        try{
-            const result = await axios.get(config.notificationGroup, {headers: headers});
+        // headers.Authorization = localStorage.getItem("");
+        try {
+            const result = await axios.get(config.notificationGroup, { headers: headerss });
             return result.data;
-        }
-        catch (e){
-            console.log(e);
-            throw new Error();
+        } catch (e) {
+            if(e.response && e.response.data && e.response.data.message) {
+                console.log(e.response.data.message);
+                throw new Error(e.response.data.message);
+            } else if(e.response && e.response.data && typeof e.response.data == "string") {
+                throw new Error(e.response.data);
+            } else {
+                console.log("Error", e.response);
+                throw new Error(e.message + ". Please contact support.");
+            }
         }
     }
 }
