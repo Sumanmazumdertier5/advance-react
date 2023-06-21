@@ -18,6 +18,8 @@ const UserList = lazy(()=> import('../Higher-Order-Component/UserList'));
 const TodoList = lazy(()=> import('../Higher-Order-Component/TodoList'));
 const RouterParamiter = lazy(()=> import('../RouterParamiter/RouterParamiter'));
 const CustomChiplist = lazy(()=> import('../Custom-Chiplist/CustomChiplist'));
+const CustomHook = lazy(()=> import('../Hook/CustomHook/pagination/Page'))
+
 
 const MainRouter = () => {
     // const router = createBrowserRouter(
@@ -54,7 +56,8 @@ const MainRouter = () => {
                             </Route>
                             <Route path="/error-boundary" element={<ErrorComponent />}> </Route>
                             <Route path="/redux" element={<ReduxRouter />}></Route>
-                            <Route path="/chiplist" element={<CustomChiplist />}></Route>
+                            <Route path="/custom-chiplist" element={<CustomChiplist />}></Route>
+                            <Route path="/custom-hook" element={<CustomHook />}></Route>
                         </Route>
                     </Routes>   
                 </Suspense>

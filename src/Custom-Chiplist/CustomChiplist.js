@@ -550,19 +550,36 @@ const CustomChiplist = ()=>{
     const selectedTagHandeler = (e, item, index)=>{
         let selectedArray = [...tagsData];
         if(e.target.checked){
+            selectedArray[index].checked = e.target.checked
             // console.log(selectedArray);
-            const updatedItems = selectedArray.map((item, index)=>{
-                if(item._id === e.target.value){
-                    return {...item, 'checked': e.target.checked}
-                }
-                else{
-                    return item
-                }
-            });
-            setSelectedTags([...selectedTags, updatedItems]);
-        }
+            // const updatedItems = tagsData.map((item, index)=> item._id === e.target.value ? {...item, checked : e.target.checked}: item);
+            // console.log(updatedItems);
+          }
+          else{
+            selectedArray[index].checked = false;
+          }
+          setSelectedTags(selectedArray);
     }
     console.log(selectedTags);
+    const tagClose = (selectItem, index)=>{
+      // console.log(selectItem, index, selectedTags);
+      
+
+      let deselectTags = selectedTags.map((item)=>{
+        if(item._id == selectItem._id){
+          console.log(item._id, selectItem._id);
+          return {...item, checked: false}
+        }
+        else{
+          return item;
+        }
+      });
+      setSelectedTags(deselectTags);
+      console.log("Deselected tag", selectedTags)
+      // setSelectedTags(deselectTags);
+      // setTagsData(deselectTags);
+    }
+
     useEffect(()=>{
         const checkOnOutside = (e)=>{
             if(typeof option != "object" && ref.current && !ref.current.contains(e.target)) {
@@ -577,6 +594,19 @@ const CustomChiplist = ()=>{
     return(
         <React.Fragment>
             <h3>Chip list</h3>
+            <div className="tags">
+              <ul>
+              { 
+                  selectedTags && selectedTags.length > 0 && selectedTags.filter((item)=> item?.checked).map((item, index)=>{
+                    return(
+                      <li key={item._id}>
+                        <p>{item.name} <button onClick={tagClose(item, index)}>X</button></p>
+                      </li>
+                    )
+                  })
+              }
+              </ul>
+            </div>
             <div ref={ref}>
                 <input type="text" onClick={tagHandeler} />
                 {
@@ -588,7 +618,7 @@ const CustomChiplist = ()=>{
                                         return(
                                             <li key={item._id}>
                                                 <label >
-                                                    <input type="checkbox" value={item._id} onChange={(e)=>selectedTagHandeler(e, item, index)} />
+                                                    <input type="checkbox" name="checked" value={item._id} checked={item['checked']} onChange={(e)=>selectedTagHandeler(e, item, index)} />
                                                     {item.name}
                                                 </label>
                                             </li>

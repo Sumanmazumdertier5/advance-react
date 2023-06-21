@@ -8,6 +8,7 @@ const Sidebar = ()=>{
     return(
         <>
             <Link to="/">Hook</Link>
+            <Link to="/custom-hook">Custom Hook</Link>
             <Link >HOC
                 <Link to="/user-list">User list</Link>
                 <Link to="/todo-list">Todo List</Link>
@@ -19,6 +20,7 @@ const Sidebar = ()=>{
                 <Link to="/router/home">Home</Link>
                 <Link to="/router/profile/123">Profile</Link>
             </Link>
+            <Link to="/custom-chiplist">Custom chiplist</Link>
         </>
     )
 }
