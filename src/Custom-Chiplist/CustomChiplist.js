@@ -561,10 +561,12 @@ const CustomChiplist = ()=>{
           setSelectedTags(selectedArray);
     }
     console.log(selectedTags);
+
+
+
     const tagClose = (selectItem, index)=>{
       // console.log(selectItem, index, selectedTags);
       
-
       let deselectTags = selectedTags.map((item)=>{
         if(item._id == selectItem._id){
           console.log(item._id, selectItem._id);

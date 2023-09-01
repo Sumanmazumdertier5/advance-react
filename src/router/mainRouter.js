@@ -19,7 +19,7 @@ const TodoList = lazy(()=> import('../Higher-Order-Component/TodoList'));
 const RouterParamiter = lazy(()=> import('../RouterParamiter/RouterParamiter'));
 const CustomChiplist = lazy(()=> import('../Custom-Chiplist/CustomChiplist'));
 const CustomHook = lazy(()=> import('../Hook/CustomHook/pagination/Page'))
-
+const Todo = lazy(()=> import('../Hook/UseReducer/Todo'))
 
 const MainRouter = () => {
     // const router = createBrowserRouter(
@@ -48,6 +48,7 @@ const MainRouter = () => {
                             <Route path ="/hoc" element={<HigherOrderRouter/>} >
                                 <Route path="user-list" element={<UserList />}></Route>
                                 <Route path="todo-list" element={<TodoList />}></Route>
+                                <Route path="use-reducer" element={<Todo />}></Route>
                             </Route>
                             <Route path ="/router" element={<RouterParamiter/>} >
                                 <Route path="home" element={<Home />}></Route>
